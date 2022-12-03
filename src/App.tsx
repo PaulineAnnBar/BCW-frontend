@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { createClient, configureChains, chain,WagmiConfig } from 'wagmi'
+import '@rainbow-me/rainbowkit/styles.css';
+import {
+    darkTheme,
+    getDefaultWallets, lightTheme,
+    RainbowKitProvider,
+} from '@rainbow-me/rainbowkit';
+import { publicProvider } from 'wagmi/providers/public';
+import '@rainbow-me/rainbowkit/styles.css';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
+const {chains, provider} = configureChains([chain.mainnet, chain.polygon], [publicProvider()]);
+
+const {connectors} =getDefaultWallets({
+    appName:"BCW frontend",
+    chains,
+});
+
+const wagmiClient = createClient({
+    connectors,
+    provider,
+})
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <WagmiConfig client={wagmiClient}>
+            <RainbowKitProvider chains={chains}
+                                theme={lightTheme({
+                                    accentColor: '#F4FEFE',
+                                    accentColorForeground: '#2D84EB',
+                                    borderRadius: 'large',
+                                    fontStack: 'rounded',
+                                    overlayBlur: 'large',
+                                })}>
+                <ConnectButton showBalance={true} chainStatus={"name"}  accountStatus={"address"} />
+            </RainbowKitProvider>
+            
+        </WagmiConfig>
+    )
 }
-
 export default App;

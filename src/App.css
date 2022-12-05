@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-color: #2D84EB;
+    height: 50px;
+    min-width: 300px;
+    border-radius: 12px;
+    position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.connect-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    box-shadow:1px 1px 1px 1px lightgrey;
+    background-color: #C4EFFB;
+    font-family: Inter, -apple-system, 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    padding-left: 20px;
+    padding-right:20px ;
+    height: 40px;
+    font-size: 17px;
+    font-weight: bold;
+    color:#2D84EB
+}
+.metamask-logo{
+    width:19px;
+    height:20px;
+    margin-left: 8px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.address-button{
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background-color: #FFFF;
+    box-shadow:1px 1px 1px lightgrey;
+    height: 40px;
+    width: 70%;
+    max-width: 90px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    font-weight: bold;
+    color:black;
+    position: absolute;
+    z-index: 999;
 }
 
-.App-link {
-  color: #61dafb;
+.chain-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow:1px 1px 1px 1px lightgrey;
+    border: 1px solid transparent;
+    background-color: #C4EFFB;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    color:#2D84EB;
+    max-width: 180px;
+    width: 70%;
+    z-index: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
